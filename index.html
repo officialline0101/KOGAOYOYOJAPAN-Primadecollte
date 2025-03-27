@@ -745,12 +745,10 @@
                 <span class="highlight-text">◆新規様のメニュー◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment1')"
-                    data-price="15000">小顔骨気コース（60分）</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment2')"
-                    data-price="15000">上半身＋小顔骨気コース（90分）</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment3')"
-                    data-price="15000">極上全身骨気スペシャルコース（120分）</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">天極のヘッドスパ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="15000">小顔骨気コース</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="15000">上半身＋小顔骨気コース</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="15000">極上全身骨気スペシャルコース</button>
             </div>
         </div>
 
@@ -759,12 +757,10 @@
                 <span class="highlight-text">◆リピーター様のメニュー◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment5')"
-                    data-price="15000">上半身＋小顔骨気コース（90分）</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment6')"
-                    data-price="15000">極上全身骨気スペシャルコース（120分）</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment7')"
-                    data-price="15000">極上全身骨気プラチナコース（150分）</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="15000">天極のヘッドスパ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="15000">上半身＋小顔骨気コース</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="15000">極上全身骨気スペシャルコース</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="15000">極上全身骨気プラチナコース</button>
             </div>
         </div>
 
@@ -861,10 +857,11 @@
         let selectedirradiationsTime = 0; // 訪問回数で選択された時間
 
         let menuTimes = {
-            '小顔骨気コース（60分）': 120,
-            '上半身＋小顔骨気コース（90分）': 150,
-            '極上全身骨気スペシャルコース（120分）': 180,
-            '極上全身骨気プラチナコース（150分）': 210
+            '小顔骨気コース': 120,
+            '天極のヘッドスパ': 60,
+            '上半身＋小顔骨気コース': 150,
+            '極上全身骨気スペシャルコース': 180,
+            '極上全身骨気プラチナコース': 210
         };
 
         let selectedMenuTime = 0;
@@ -898,7 +895,6 @@
                 }
             });
         });
-
 
         function updateDisplayInfo() {
             const name = document.getElementById('name').value;
@@ -1010,6 +1006,7 @@
 
             // 選択されたオプションを取得
             const updatedSelectedButtons = document.querySelectorAll('.symptoms button.active');
+            const treatmentText = document.getElementById('treatment-text');
 
             if (updatedSelectedButtons.length === 0) {
                 // すべてのボタンの選択が解除された場合、メニュー時間を0にリセット
@@ -1038,23 +1035,21 @@
             fetchAvailability(currentDate);
 
             if (treatmentId === 'treatment1') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円<br>初診料：＋2,200円</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：30分</strong></div><div style="text-align: right;"><strong>料金：16,500円</strong></div>`;
             } else if (treatmentId === 'treatment2') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,500円<br>初診料：＋2,200円</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br></div><div style="text-align: right;"><strong>料金：20,900円</strong></div>`;
             } else if (treatmentId === 'treatment3') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：120分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：8,700円<br>初診料：＋2,200円</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br></div><div style="text-align: right;"><strong>料金：25,300円</strong></div>`;
             } else if (treatmentId === 'treatment4') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：30分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円<br>初診料：＋2,200円</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：120分</strong><br></div><div style="text-align: right;"><strong>料金：33,000円</strong></div>`;
             } else if (treatmentId === 'treatment5') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：30分</strong><br></div><div style="text-align: right;"><strong></strong></div>`;
             } else if (treatmentId === 'treatment6') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：30分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,500円</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br></div><div style="text-align: right;"><strong></strong></div>`;
             } else if (treatmentId === 'treatment7') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：8,700円</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：120分</strong><br></div><div style="text-align: right;"><strong></strong></div>`;
             } else if (treatmentId === 'treatment8') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：15分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円</strong></div>`;
-            } else if (treatmentId === 'treatment9') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：15分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円</strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：150分</strong><br></div><div style="text-align: right;"><strong></strong></div>`;
             } else {
                 treatmentText.innerHTML = '';
             }
@@ -1270,7 +1265,7 @@
                 return;
             }
 
-            const url = 'https://script.google.com/macros/s/AKfycbw8qq-Og7XkrHTWNafvCdZYeASb9kUox2sg13fw05I90HpJqrXks1k5N6amtfHQjvF9KQ/exec' +
+            const url = 'https://script.google.com/macros/s/AKfycbydcwmTHqV0Yx_-Et5r_VEokLDLTSp-Cu37XfwGCOuUzqakiFUPC7_ejrSQ1MZRrCsaow/exec' +
                 `?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`;
 
             try {
