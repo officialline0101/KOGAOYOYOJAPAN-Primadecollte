@@ -957,7 +957,7 @@
             let totalMinutes = selectedMenuTime + selectedirradiationsTime + selectedVisitTime;
             let hours = Math.floor(totalMinutes / 60);
             let minutes = totalMinutes % 60;
-            let totalTimeText = `<span style="color:#ad81e3;"><strong>【所要時間】</strong></span><br>・${hours > 0 ? hours + '時間' : ''}${minutes}分`;
+            let totalTimeText = `<span style="color:#ad81e3;"><strong>【施術時間】</strong></span><br>・${hours > 0 ? hours + '時間' : ''}${minutes}分`;
 
             const totalAmountText = `<span style="color:#ad81e3;"><strong>【合計金額】</strong></span><br>・¥${menuPrice + optionsPrice}`;
             const selectedDateText = selectedFullDate ? `<span style="color:#ad81e3;"><strong>【希望日時】</strong></span><br>・${selectedFullDate}` : '・日時が未選択です';
@@ -1072,21 +1072,21 @@
             fetchAvailability(currentDate);
 
             if (treatmentId === 'treatment1') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong></div><div style="text-align: right;"><strong>料金：19,800円<br><span style="color: red; font-weight: bold;">20%OFF：15,800円</span></strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>施術時間：60分</strong></div><div style="text-align: right;"><strong>料金：19,800円<br><span style="color: red; font-weight: bold;">20%OFF：15,800円</span></strong></div>`;
             } else if (treatmentId === 'treatment2') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br></div><div style="text-align: right;"><strong>料金：25,300円<br><span style="color: red; font-weight: bold;">20%OFF：19,900円</span></strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>施術時間：90分</strong><br></div><div style="text-align: right;"><strong>料金：25,300円<br><span style="color: red; font-weight: bold;">20%OFF：19,900円</span></strong></div>`;
             } else if (treatmentId === 'treatment3') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：120分</strong><br></div><div style="text-align: right;"><strong>料金：33,000円<br><span style="color: red; font-weight: bold;">20%OFF：26,400円</span></strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>施術時間：120分</strong><br></div><div style="text-align: right;"><strong>料金：33,000円<br><span style="color: red; font-weight: bold;">20%OFF：26,400円</span></strong></div>`;
             } else if (treatmentId === 'treatment4') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：150分</strong><br></div><div style="text-align: right;"><strong>料金：44,000円<br><span style="color: red; font-weight: bold;">20%OFF：35,200円</span></strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>施術時間：150分</strong><br></div><div style="text-align: right;"><strong>料金：44,000円<br><span style="color: red; font-weight: bold;">20%OFF：35,200円</span></strong></div>`;
             } else if (treatmentId === 'treatment5') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br></div><div style="text-align: right;"><strong>料金：18,800円<br><span style="color: red; font-weight: bold;">OPEN価格：14,800円</span></strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>施術時間：60分</strong><br></div><div style="text-align: right;"><strong>料金：18,800円<br><span style="color: red; font-weight: bold;">OPEN価格：14,800円</span></strong></div>`;
             } else if (treatmentId === 'treatment6') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：80分</strong><br></div><div style="text-align: right;"><strong>料金：24,200円<br><span style="color: red; font-weight: bold;">OPEN価格：18,000円</span></strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>施術時間：80分</strong><br></div><div style="text-align: right;"><strong>料金：24,200円<br><span style="color: red; font-weight: bold;">OPEN価格：18,000円</span></strong></div>`;
             } else if (treatmentId === 'treatment7') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：100分</strong><br></div><div style="text-align: right;"><strong>料金：30,800円<br><span style="color: red; font-weight: bold;">OPEN価格：23,000円</span></strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>施術時間：100分</strong><br></div><div style="text-align: right;"><strong>料金：30,800円<br><span style="color: red; font-weight: bold;">OPEN価格：23,000円</span></strong></div>`;
             } else if (treatmentId === 'treatment8') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：120分</strong><br></div><div style="text-align: right;"><strong>料金：16,500円<br><span style="color: red; font-weight: bold;">20%OFF：15,800円</span></strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>施術時間：120分</strong><br></div><div style="text-align: right;"><strong>料金：16,500円<br><span style="color: red; font-weight: bold;">20%OFF：15,800円</span></strong></div>`;
             } else {
                 treatmentText.innerHTML = '';
             }
