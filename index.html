@@ -15,7 +15,7 @@
             /* さらに右へ */
             top: 80%;
             /* 画面中央に固定 */
-            transform: translateY(-50%) translateX(20px);
+            transform: translateY(-50%) translateX(13px);
             /* 中央配置と右ずらし */
             background: #ad81e3;
             display: flex;
@@ -704,6 +704,44 @@
             padding: 50px 10px;
             margin-top: 30px;
         }
+
+  /* コンテナの最大幅と中央寄せ */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  /* 画像がにじまない＆角丸＋影で見栄えUP */
+.hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  background: #f3f4f6;
+  margin-bottom: 10px;  /* ← 画像の下に10pxの隙間 */
+}
+
+  .hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;              /* 余白を作らずトリミングでフィット */
+    object-position: center;        /* 中央基準。上寄せ等にしたい時は top / 30% など */
+    display: block;
+  }
+
+  /* スマホは少し縦を確保して見栄え良く */
+  @media (max-width: 520px) {
+    .hero { aspect-ratio: 4 / 3; }
+  }
+
+  /* h1 の余白調整（任意） */
+  .container h1 {
+    margin: 0 0 12px;
+    line-height: 1.35;
+  }
     </style>
 </head>
 
@@ -716,11 +754,20 @@
         </a>
     </div>
 
-    <div class="container">
-        <h1>銀座小顔コルギサロン<br>Prima Décolleté<br>予約フォーム
-        </h1>
-        <div class="label">お客様名<span class="required">必須</span></div>
-        <input type="text" id="name" placeholder="お名前を入力してください" oninput="saveInput('name')">
+<div class="container">
+  <h1>銀座小顔コルギサロン<br>GINZA LAVANDE KOGAO<br>予約フォーム</h1>
+
+  <!-- ここを追加：共有URLの末尾を raw=1 に -->
+  <div class="hero">
+    <img
+      src="https://www.dropbox.com/scl/fi/faa50pghq6b15q8wukk3r/.jpg?rlkey=z6x95oxrp0roipvwwrzlnxysz&st=nfilmubv&raw=1"
+      alt="銀座小顔コルギサロン GINZA LAVANDE KOGAO"
+      loading="lazy"
+      decoding="async">
+  </div>
+
+  <div class="label">お客様名<span class="required">必須</span></div>
+  <input type="text" id="name" placeholder="お名前を入力してください" oninput="saveInput('name')">
 
         <div class="label">電話番号<span class="required">必須</span></div>
         <input type="tel" id="phone" placeholder="電話番号を入力してください" oninput="saveInput('phone')">
@@ -743,8 +790,9 @@
                 <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="15000">小顔コルギ&BODY半身</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="15000">☆超絶小顔コルギ全身管理</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="15000">至福小顔コルギ極上SP管理</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="15000">☆自律神経リカバリーセラピー</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="15000">敏感肌/アトピー/ゆらぎ改善セラピー</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="15000">血巡りドライヘッドスパ<br>&<br>首肩腕手デコルテ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="15000">血巡り回復半身コース/<br>背中・頭・首肩デコルテ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="15000">血巡り養命全身コース</button>
             </div>
         </div>
 
@@ -850,13 +898,16 @@
         let selectedirradiationsTime = 0; // 訪問回数で選択された時間
 
         let menuTimes = {
-            '回数券120分': 120,
-            '小顔コルギ&頭蓋リフト': 60,
-            '小顔コルギ&BODY半身': 90,
-            '☆超絶小顔コルギ全身管理': 120,
-            '至福小顔コルギ極上SP管理': 150,
-            '☆自律神経リカバリーセラピー': 60,
-            '敏感肌/アトピー/ゆらぎ改善セラピー': 60
+            '血巡りドライヘッドスパ&首肩腕手デコルテ': 120,
+            '血巡り回復半身コース/背中・頭・首肩デコルテ': 140,
+            '血巡り養命全身コース': 160,
+            '回数券120分': 180,
+            '小顔コルギ&頭蓋リフト': 120,
+            '小顔コルギ&BODY半身': 150,
+            '☆超絶小顔コルギ全身管理': 180,
+            '至福小顔コルギ極上SP管理': 230,
+            '☆自律神経リカバリーセラピー': 120,
+            '敏感肌/アトピー/ゆらぎ改善セラピー': 120
         };
 
         let selectedMenuTime = 0;
@@ -1029,9 +1080,11 @@
             } else if (treatmentId === 'treatment4') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：150分</strong><br></div><div style="text-align: right;"><strong>料金：44,000円<br><span style="color: red; font-weight: bold;">20%OFF：35,200円</span></strong></div>`;
             } else if (treatmentId === 'treatment5') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br></div><div style="text-align: right;"><strong>料金：19,800円<br><span style="color: red; font-weight: bold;">OPEN価格：9,800円</span></strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br></div><div style="text-align: right;"><strong>料金：18,800円<br><span style="color: red; font-weight: bold;">OPEN価格：14,800円</span></strong></div>`;
             } else if (treatmentId === 'treatment6') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br></div><div style="text-align: right;"><strong>料金：16,500円<br><span style="color: red; font-weight: bold;">OPEN価格：8,800円</span></strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：80分</strong><br></div><div style="text-align: right;"><strong>料金：24,200円<br><span style="color: red; font-weight: bold;">OPEN価格：18,000円</span></strong></div>`;
+            } else if (treatmentId === 'treatment7') {
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：100分</strong><br></div><div style="text-align: right;"><strong>料金：30,800円<br><span style="color: red; font-weight: bold;">OPEN価格：23,000円</span></strong></div>`;
             } else if (treatmentId === 'treatment8') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：120分</strong><br></div><div style="text-align: right;"><strong>料金：16,500円<br><span style="color: red; font-weight: bold;">20%OFF：15,800円</span></strong></div>`;
             } else {
