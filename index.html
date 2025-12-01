@@ -742,6 +742,12 @@
     margin: 0 0 12px;
     line-height: 1.35;
   }
+
+  /* 途中は省略 */
+
+  .boost-red {
+    color: red;
+  }
     </style>
 </head>
 
@@ -786,7 +792,7 @@
                 <span class="highlight-text">◆新規メニュー◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="15000">毒出しBOOST／100</button>
+                <button type="button" class="boost-red" onclick="selectSymptom(this, 'treatment8')" data-price="15000">毒出しBOOST／100</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">小顔コルギ&頭蓋リフト</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="15000">小顔コルギ&BODY半身</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="15000">☆超絶小顔コルギ全身管理</button>
@@ -1087,7 +1093,14 @@
             } else if (treatmentId === 'treatment7') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>施術時間：100分</strong><br></div><div style="text-align: right;"><strong>料金：30,800円<br><span style="color: red; font-weight: bold;">OPEN価格：23,000円</span></strong></div>`;
             } else if (treatmentId === 'treatment8') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>施術時間：120分</strong><br></div><div style="text-align: right;"><strong>料金：17,700円税込</div>`;
+                treatmentText.innerHTML = `
+  <div style="text-align: left;">
+    <strong>施術時間：120分</strong><br>
+  </div>
+  <div style="text-align: right;">
+    <strong>料金：33,000円⇒<span style="color:red;">17,700円</span>税込</strong>
+  </div>
+`;rong><br></div><div style="text-align: right;"><strong>料金：33,000円⇒17,700円税込</div>`;
             } else {
                 treatmentText.innerHTML = '';
             }
