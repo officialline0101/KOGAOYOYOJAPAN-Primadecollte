@@ -792,7 +792,7 @@
                 <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="15000">至福小顔コルギ極上SP管理</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="15000">血巡りドライヘッドスパ<br>&<br>首肩腕手デコルテ</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="15000">血巡り回復半身コース/<br>背中・頭・首肩デコルテ</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="15000">血巡り養命全身コース</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="15000">毒出しBOOST／100</button>
             </div>
         </div>
 
@@ -907,7 +907,8 @@
             '☆超絶小顔コルギ全身管理': 180,
             '至福小顔コルギ極上SP管理': 230,
             '☆自律神経リカバリーセラピー': 120,
-            '敏感肌/アトピー/ゆらぎ改善セラピー': 120
+            '敏感肌/アトピー/ゆらぎ改善セラピー': 120,
+            '毒出しBOOST／100': 120
         };
 
         let selectedMenuTime = 0;
@@ -1086,7 +1087,7 @@
             } else if (treatmentId === 'treatment7') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>施術時間：100分</strong><br></div><div style="text-align: right;"><strong>料金：30,800円<br><span style="color: red; font-weight: bold;">OPEN価格：23,000円</span></strong></div>`;
             } else if (treatmentId === 'treatment8') {
-                treatmentText.innerHTML = `<div style="text-align: left;"><strong>施術時間：120分</strong><br></div><div style="text-align: right;"><strong>料金：16,500円<br><span style="color: red; font-weight: bold;">20%OFF：15,800円</span></strong></div>`;
+                treatmentText.innerHTML = `<div style="text-align: left;"><strong>施術時間：120分</strong><br></div><div style="text-align: right;"><strong>料金：17,700円税込</div>`;
             } else {
                 treatmentText.innerHTML = '';
             }
